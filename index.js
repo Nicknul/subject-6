@@ -11,11 +11,20 @@ ajaxBu.addEventListener('click', () => {
     //AJAX의 방식으로 API 가져오기
     const xhr = new XMLHttpRequest();
     xhr.open('GET', post, true);
-
+    // xhr 이벤트리스너 load
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
+        // xhr의 데이터를 JSON로 parse
         let data = JSON.parse(xhr.responseText);
-        console.log(data);
+
+        let arr = [];
+
+        async function commentFe() {
+          let data = await fetch(comment, { method: 'GET' });
+          let parse = await data.json();
+          console.log(parse);
+        }
+        commentFe();
       }
     });
 
