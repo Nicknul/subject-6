@@ -34,9 +34,11 @@
             let div2 = document.createElement('div');
             // 만약 comment api에서 postId가 반복문 i와 같다면
             if (postId === i) {
+              // div에 해당 값들을 띄워줌
               div1.innerHTML = postId;
               div2.innerHTML = title;
             }
+            // 생성한 <div> tag들을 root에 넣어줌으로써 브라우저에 나타나게 함
             root.appendChild(div1);
             root.appendChild(div2);
           }
