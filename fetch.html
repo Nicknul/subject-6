@@ -27,6 +27,16 @@
             let title = c.name;
             let email = c.email;
             let content = c.body;
+
+            let div1 = document.createElement('div');
+            let div2 = document.createElement('div');
+
+            if (postId === i) {
+              div1.innerHTML = postId;
+              div2.innerHTML = title;
+            }
+            root.appendChild(div1);
+            root.appendChild(div2);
           }
         }
       }
