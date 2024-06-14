@@ -6,10 +6,13 @@
     <title>TEST</title>
   </head>
   <body>
+    <button id="AJAX">AJAX</button>
     <div id="root"></div>
     <script>
       // id="root" 불러오기
       const root = document.getElementById('root');
+      const ajax = document.querySelector('#AJAX');
+      console.log(ajax);
       // AJAX 방식 posst API 데이터 가져오기
       const getPostsAJAX = () => {
         // 생성자 함수를 사용하여 XHLHttpRequest 생성 (객체)
