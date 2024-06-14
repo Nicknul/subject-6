@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FEACH</title>
+    <title>FETCH</title>
   </head>
   <body>
     <div id="root"></div>
     <script>
       const root = document.getElementById('root');
-      console.log(root);
+      // console.log(root);
 
       const keyNum = [];
 
       for (let i = 1; i < 101; i++) {
-        let str = `${i}`;
-        // console.log(str);
-        keyNum.push(str);
+        let endPoint = `https://jsonplaceholder.typicode.com/comments?postId=${i}`;
+        console.log(endPoint);
       }
-      // console.log(keyNum);
+
+      // fetch;
     </script>
   </body>
 </html>
