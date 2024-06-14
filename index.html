@@ -8,8 +8,10 @@
   <body>
     <div id="root"></div>
     <script>
+      //
       const root = document.getElementById('root');
       const ul = document.createElement('ul');
+
       const getPostsAJAX = () => {
         const xhr = new XMLHttpRequest();
         const posts = 'https://jsonplaceholder.typicode.com/posts';
@@ -21,11 +23,16 @@
             let a = JSON.parse(xhr.responseText);
 
             a.forEach((element) => {
-              let li = document.createElement('li');
+              let newLi = document.createElement('li');
+              let newUl = document.createElement('ul');
               // console.log(element.title);
-              let textNode = element.title;
-              li.innerHTML = `title : ${textNode}`;
-              ul.appendChild(li);
+              let title = element.title;
+              let body = element.body;
+              newLi.innerHTML = title;
+              newUl.innerHTML = body;
+
+              newLi.appendChild(newUl);
+              ul.appendChild(newLi);
             });
             root.appendChild(ul);
           }
