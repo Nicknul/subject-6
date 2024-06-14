@@ -10,7 +10,7 @@
     <script>
       const root = document.getElementById('root');
       // console.log(root);
-      const div = document.createElement('div');
+
       const keyNum = [];
 
       async function comment() {
@@ -22,7 +22,11 @@
             let b = await a.json();
             let c = b[j];
 
-            console.log(c);
+            let postId = c.postId;
+            let id = c.id;
+            let title = c.name;
+            let email = c.email;
+            let content = c.body;
           }
         }
       }
