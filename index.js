@@ -10,9 +10,15 @@ ajaxBu.addEventListener('click', () => {
   const postAJAX = () => {
     //AJAX의 방식으로 API 가져오기
     const xhr = new XMLHttpRequest();
-
     xhr.open('GET', post, true);
-    console.dir(xhr);
+
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+        let data = JSON.parse(xhr.responseText);
+        console.log(data);
+      }
+    });
+
     xhr.send();
   };
   postAJAX();
