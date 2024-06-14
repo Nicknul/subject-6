@@ -8,27 +8,31 @@
   <body>
     <div id="root"></div>
     <script>
+      // id="root" 불러오기
       const root = document.getElementById('root');
-      // console.log(root);
 
+      // comment 함수 생성
       async function comment() {
+        //comment api가 들어갈 주소의 뒷자리 숫자를 넣기 위한 반복문
         for (let i = 1; i < 101; i++) {
           let endPoint = `https://jsonplaceholder.typicode.com/comments?postId=${i}`;
-          // console.log(endPoint);
+          // endPoint 주소 안에 있는 배열을 가져오기 위한 반복문
           for (let j = 0; j < 5; j++) {
+            // fetch 함수를 통해 주소 읽어오고, json 방식으로 읽어오기
+            // fetch는 비동기이기 때문에 async, await를 사용
             let a = await fetch(endPoint, { method: 'GET' });
             let b = await a.json();
             let c = b[j];
-
+            // comment api에 있는 데이터를 변수를 생성하고 값으로 할당
             let postId = c.postId;
             let id = c.id;
             let title = c.name;
             let email = c.email;
             let content = c.body;
-
+            // 변수의 값을 넣을 <div> tag 생성
             let div1 = document.createElement('div');
             let div2 = document.createElement('div');
-
+            // 만약 comment api에서 postId가 반복문 i와 같다면
             if (postId === i) {
               div1.innerHTML = postId;
               div2.innerHTML = title;
