@@ -5,5 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <button id="download">download</button>
+    <button id="abort">abort</button>
+    <script>
+      const controller = new AbortController();
+      const signal = controller.signal;
+      const url = 'test.txt';
+
+      const downloadBtn = document.querySelector('#download');
+      const abortBtn = document.querySelector('#abort');
+
+      downloadBtn.addEventListener('click', async () => {
+        try {
+          const response = await fetch(url, { signal });
+          console.log('다운로드 완료', response);
+        } catch (error) {
+          console.error(`다운로드 오류: ${error.message}`);
+        }
+      });
+
+      abortBtn.addEventListener('click', () => {
+        controller.abort();
+        console.log('다운로드 중단됨');
+      });
+    </script>
+  </body>
 </html>
