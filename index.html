@@ -8,12 +8,28 @@
   <body>
     <div id="root"></div>
     <script>
+      const root = document.getElementById('root');
+      const ul = document.createElement('ul');
       const getPostsAJAX = () => {
         const xhr = new XMLHttpRequest();
-
         const posts = 'https://jsonplaceholder.typicode.com/posts';
 
         xhr.open('GET', posts, true);
+
+        xhr.addEventListener('load', () => {
+          if (xhr.status === 200) {
+            let a = JSON.parse(xhr.responseText);
+
+            a.forEach((element) => {
+              let li = document.createElement('li');
+              // console.log(element.title);
+              let textNode = element.title;
+              li.innerHTML = `title : ${textNode}`;
+              ul.appendChild(li);
+            });
+            root.appendChild(ul);
+          }
+        });
         xhr.send();
       };
       getPostsAJAX();
