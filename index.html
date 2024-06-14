@@ -10,13 +10,13 @@
     <script>
       //
       const root = document.getElementById('root');
-      const ul = document.createElement('ul');
 
       const getPostsAJAX = () => {
         const xhr = new XMLHttpRequest();
-        const posts = 'https://jsonplaceholder.typicode.com/posts';
+        const endPoint = 'https://jsonplaceholder.typicode.com/posts';
 
-        xhr.open('GET', posts, true);
+        xhr.open('GET', endPoint, true);
+        console.dir(xhr);
 
         xhr.addEventListener('load', () => {
           if (xhr.status === 200) {
