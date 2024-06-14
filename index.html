@@ -23,18 +23,17 @@
             let a = JSON.parse(xhr.responseText);
 
             a.forEach((element) => {
-              let newLi = document.createElement('li');
-              let newUl = document.createElement('ul');
+              let h3 = document.createElement('h3');
+              let div = document.createElement('div');
               // console.log(element.title);
               let title = element.title;
               let body = element.body;
-              newLi.innerHTML = title;
-              newUl.innerHTML = body;
+              h3.innerHTML = title;
+              div.innerHTML = body;
 
-              newLi.appendChild(newUl);
-              ul.appendChild(newLi);
+              root.appendChild(h3);
+              root.appendChild(div);
             });
-            root.appendChild(ul);
           }
         });
         xhr.send();
