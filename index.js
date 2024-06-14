@@ -17,7 +17,7 @@ ajaxBu.addEventListener('click', () => {
         // xhr의 데이터를 JSON로 parse
         let data = JSON.parse(xhr.responseText);
 
-        let arr = [];
+        for (let i = 0; i < data.length; i++) {}
 
         async function commentFe() {
           let data = await fetch(comment, { method: 'GET' });
