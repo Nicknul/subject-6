@@ -13,10 +13,20 @@
 
       const keyNum = [];
 
-      for (let i = 1; i < 101; i++) {
-        let endPoint = `https://jsonplaceholder.typicode.com/comments?postId=${i}`;
-        console.log(endPoint);
+      async function comment() {
+        for (let i = 1; i < 101; i++) {
+          let endPoint = `https://jsonplaceholder.typicode.com/comments?postId=${i}`;
+          // console.log(endPoint);
+          for (let j = 0; j < 5; j++) {
+            let a = await fetch(endPoint, { method: 'GET' });
+            let b = await a.json();
+            let c = b[j];
+
+            console.log(c);
+          }
+        }
       }
+      comment();
 
       // fetch;
     </script>
