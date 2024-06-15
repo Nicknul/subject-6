@@ -28,12 +28,16 @@ ajaxBu.addEventListener('click', () => {
           async function commentFe() {
             let fetchData = await fetch(keyNumber, { method: 'GET' });
             let parse = await fetchData.json();
-
+            // for문을 통해 fetch 방식으로 가져온 API의 데이터를 가져오기
             for (let j = 0; j < parse.length; j++) {
               let commentData = parse[j];
-
+              // ommentData의 postId 값
               let postId = commentData.postId;
-              console.log(postId);
+              // 만약 postId와 userId의 값이 같다면,
+              if (postId === userId) {
+                let email = commentData.email;
+                console.log(email);
+              }
             }
           }
           commentFe();
