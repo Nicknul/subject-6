@@ -15,15 +15,17 @@ ajaxBu.addEventListener('click', () => {
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
         // xhr의 데이터를 JSON로 parse
-        let postData = JSON.parse(xhr.responseText);
+        let jsonData = JSON.parse(xhr.responseText);
 
-        for (let i = 0; i < postData.length; i++) {
+        for (let i = 0; i < jsonData.length; i++) {
+          let postData = jsonData[i];
+          console.log(postData);
           let keyNumber = `${comment}${i + 1}`;
 
           async function commentFe() {
             let commentData = await fetch(keyNumber, { method: 'GET' });
             let parse = await commentData.json();
-            console.log(parse);
+            // console.log(parse);
           }
           commentFe();
         }
