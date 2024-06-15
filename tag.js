@@ -3,10 +3,16 @@ const tagComponent = (tagName, idName, textNode) => {
 };
 
 // console.log(tagComponent('button', 'bu1', 'test'));
+let arr = [];
 
 const container = () => {
   for (let i = 1; i <= 5; i++) {
     let buttonTag = tagComponent('button', `bu${i}`, `test${i}`);
+    arr.push(buttonTag);
   }
 };
-console.log(container());
+container();
+
+root.innerHTML = arr.join('');
+
+console.log(arr);
