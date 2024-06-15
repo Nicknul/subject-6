@@ -22,7 +22,7 @@ ajaxBu.addEventListener('click', () => {
           let postData = jsonData[i];
           // postData의 userId의 값
           let userId = postData.userId;
-
+          // comment url + for문의 숫자 = comment API url 생성
           let keyNumber = `${comment}${i + 1}`;
           //fetch 방식으로 API 안에 있는 데이터 가져오기
           async function commentFe() {
@@ -36,15 +36,20 @@ ajaxBu.addEventListener('click', () => {
               // 만약 postId와 userId의 값이 같다면,
               if (postId === userId) {
                 let email = commentData.email;
-                console.log(email);
+                //브라우저에 값을 나타나게 할 <div> tag 생성
+                let div1 = document.createElement('div');
+
+                div1.innerHTML = email;
+                // 생성한 <div>를 root의 자식으로 넣어줌
+                root.appendChild(div1);
               }
             }
           }
+          // fetch 함수가 포함된 function 호출
           commentFe();
         }
       }
     });
-
     xhr.send();
   };
   postAJAX();
