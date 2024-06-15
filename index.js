@@ -16,10 +16,15 @@ ajaxBu.addEventListener('click', () => {
       if (xhr.status === 200) {
         // xhr의 데이터를 JSON로 parse
         let jsonData = JSON.parse(xhr.responseText);
-
+        // for문을 통해 json 배열 안에 있는 데이터 불러오기
         for (let i = 0; i < jsonData.length; i++) {
+          // AJAX로 받아온 데이터 가져오기
           let postData = jsonData[i];
-          console.log(postData);
+
+          let userId = postData.userId;
+          console.log(userId);
+
+          // console.log(postData);
           let keyNumber = `${comment}${i + 1}`;
 
           async function commentFe() {
