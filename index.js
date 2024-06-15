@@ -18,19 +18,23 @@ ajaxBu.addEventListener('click', () => {
         let jsonData = JSON.parse(xhr.responseText);
         // for문을 통해 json 배열 안에 있는 데이터 불러오기
         for (let i = 0; i < jsonData.length; i++) {
-          // AJAX로 받아온 데이터 가져오기
+          // AJAX 방식으로 API 안에 있는 데이터 가져오기
           let postData = jsonData[i];
-
+          // postData의 userId의 값
           let userId = postData.userId;
-          console.log(userId);
 
-          // console.log(postData);
           let keyNumber = `${comment}${i + 1}`;
-
+          //fetch 방식으로 API 안에 있는 데이터 가져오기
           async function commentFe() {
-            let commentData = await fetch(keyNumber, { method: 'GET' });
-            let parse = await commentData.json();
-            // console.log(parse);
+            let fetchData = await fetch(keyNumber, { method: 'GET' });
+            let parse = await fetchData.json();
+
+            for (let j = 0; j < parse.length; j++) {
+              let commentData = parse[j];
+
+              let postId = commentData.postId;
+              console.log(postId);
+            }
           }
           commentFe();
         }
