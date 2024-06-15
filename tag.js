@@ -4,4 +4,9 @@ const tagComponent = (tagName, idName, textNode) => {
 
 // console.log(tagComponent('button', 'bu1', 'test'));
 
-const container = () => {};
+const container = () => {
+  for (let i = 1; i <= 5; i++) {
+    console.log(tagComponent('button', `bu${i}`, `test${i}`));
+  }
+};
+console.log(container());
