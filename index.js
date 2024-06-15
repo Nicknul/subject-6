@@ -19,15 +19,14 @@ ajaxBu.addEventListener('click', () => {
 
         for (let i = 0; i < postData.length; i++) {
           let keyNumber = `${comment}${i + 1}`;
-          console.log(keyNumber);
-        }
 
-        async function commentFe() {
-          let commentData = await fetch(comment, { method: 'GET' });
-          let parse = await commentData.json();
-          // console.log(parse);
+          async function commentFe() {
+            let commentData = await fetch(keyNumber, { method: 'GET' });
+            let parse = await commentData.json();
+            console.log(parse);
+          }
+          commentFe();
         }
-        commentFe();
       }
     });
 
