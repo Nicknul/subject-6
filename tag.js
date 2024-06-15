@@ -6,7 +6,7 @@ const tagComponent = (tagName, idName, textNode) => {
 
 const container = () => {
   for (let i = 1; i <= 5; i++) {
-    console.log(tagComponent('button', `bu${i}`, `test${i}`));
+    let buttonTag = tagComponent('button', `bu${i}`, `test${i}`);
   }
 };
 console.log(container());
