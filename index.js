@@ -20,8 +20,13 @@ ajaxBu.addEventListener('click', () => {
         for (let i = 0; i < jsonData.length; i++) {
           // AJAX 방식으로 API 안에 있는 데이터 가져오기
           let postData = jsonData[i];
-          // postData의 userId의 값
+
+          // postData 안에 있는 값을 변수에 할당
           let userId = postData.userId;
+          let id = postData.id;
+          let postTitle = postData.title;
+          let postBody = postData.body;
+
           // comment url + for문의 숫자 = comment API url 생성
           let keyNumber = `${comment}${i + 1}`;
           //fetch 방식으로 API 안에 있는 데이터 가져오기
