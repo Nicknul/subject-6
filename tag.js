@@ -7,7 +7,7 @@ let arr = [];
 
 const container = () => {
   for (let i = 1; i <= 5; i++) {
-    let buttonTag = tagComponent('button', `bu${i}`, `test${i}`);
+    let buttonTag = tagComponent('button', `bu${i}`, `postId : ${i}`);
     arr.push(buttonTag);
   }
 };
